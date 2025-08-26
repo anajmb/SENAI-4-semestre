@@ -5,6 +5,24 @@ function FormLogin () {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
+    const handleLogin = () => {
+
+
+        if (!email || !senha) {
+            alert("Preencher os campos!")
+        }
+
+        try {
+          // Envio oara API 
+          // const response = await axios.post("/login", {
+          // email,
+          // senha
+          // });  
+        } catch (error) {
+            console.error("Ocorreu um erro ao acessar a API");
+        }
+    }
+
     return (
         <>
             <h1>Form Login</h1>
@@ -14,10 +32,10 @@ function FormLogin () {
             </div>
             <div>
                 <label>Senha</label>
-                <input type="password" placeholder="Digite sua senha" />
+                <input onChange = {(evento) => setSenha(evento.target.value)} type="password" placeholder="Digite sua senha" />
             </div>
 
-            <button>Entrar</button>
+            <button onClick={() => handleLogin()}>Entrar</button>
         </>
     )
 }
