@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -9,6 +9,11 @@ function Contador() {
     const incrementar = () => {
         setContador(contador + 1);
     }
+    
+    useEffect(() => {
+        console.log("É executado toda vez que o valor é trocado...");
+        console.log(contador);
+    }, [contador])
 
     return (
         <div>
